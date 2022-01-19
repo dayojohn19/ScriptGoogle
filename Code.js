@@ -1,9 +1,27 @@
 function myFunction() {
   
 }
-
-function doGet(e) {
-  return HtmlService
-    .createHtmlOutputFromFile('index.html')//This is html file we want to render
-    .setTitle("Hello World Example");//We can set title from here
+//function doGet(request) {
+  function doGet() {
+//  return HtmlService.createTemplateFromFile('index')
+//      .evaluate();
+  
+  var html = HtmlService.createHtmlOutputFromFile("index");
+  return html.setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
 }
+
+function include(filename) {
+  return HtmlService.createHtmlOutputFromFile(filename)
+      .getContent();
+}
+
+//function doGet(request) {
+//  return HtmlService.createTemplateFromFile('Index').evaluate();
+//}
+
+
+
+//function doGet() {
+//  var html = HtmlService.createHtmlOutputFromFile("index");
+//  return html.setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
+//}
